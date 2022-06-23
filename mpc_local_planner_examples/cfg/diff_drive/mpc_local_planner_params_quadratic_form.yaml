@@ -6,12 +6,12 @@ MpcLocalPlannerROS:
   robot:
     type: "unicycle"
     unicycle:
-      max_vel_x: 0.4
+      max_vel_x: 1.2 #0.4
       max_vel_x_backwards: 0.2
-      max_vel_theta: 0.3
-      acc_lim_x: 0.2 # deactive bounds with zero
-      dec_lim_x: 0.2 # deactive bounds with zero
-      acc_lim_theta: 0.2 # deactivate bounds with zero
+      max_vel_theta: 1.0 #0.3
+      acc_lim_x: 10 #0.2 # deactive bounds with zero
+      dec_lim_x: 10 #0.2 # deactive bounds with zero
+      acc_lim_theta: 20 #0.2 # deactivate bounds with zero
 
   ## Footprint model for collision avoidance
   footprint_model:
@@ -21,7 +21,7 @@ MpcLocalPlannerROS:
   ## Collision avoidance
   collision_avoidance:
     min_obstacle_dist: 0.2 # Note, this parameter must be chosen w.r.t. the footprint_model
-    enable_dynamic_obstacles: False
+    enable_dynamic_obstacles: True #False
     force_inclusion_dist: 0.5
     cutoff_dist: 2.5  
     include_costmap_obstacles: True
@@ -102,3 +102,5 @@ MpcLocalPlannerROS:
       weight_adapt_max_eq: 500
       weight_adapt_max_ineq: 500
       weight_adapt_max_bounds: 500
+
+  robot_id: 0
